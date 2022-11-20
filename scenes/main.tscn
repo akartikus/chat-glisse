@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci18q4j4yl16b"]
+
+[ext_resource type="Texture2D" uid="uid://vhvthew4mhsi" path="res://icon.svg" id="1_0lw5s"]
+[ext_resource type="PackedScene" uid="uid://c66nwsdfwk20p" path="res://scenes/cat.tscn" id="2_xkab4"]
+[ext_resource type="PackedScene" uid="uid://cnpg2bn3hkulv" path="res://scenes/slingshot.tscn" id="3_aymer"]
+[ext_resource type="PackedScene" uid="uid://caec7wbe31wbx" path="res://scenes/area.tscn" id="4_u5pux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oi03"]
+size = Vector2(40, 641)
+
+[node name="Main" type="Node2D"]
+metadata/_edit_vertical_guides_ = [3039.0]
+
+[node name="StaticBody2d" type="StaticBody2D" parent="."]
+disable_mode = 1
+
+[node name="Sprite2d" type="Sprite2D" parent="StaticBody2d"]
+position = Vector2(22.5, 328)
+scale = Vector2(0.335938, 5.01563)
+texture = ExtResource("1_0lw5s")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="StaticBody2d"]
+position = Vector2(23, 327.5)
+shape = SubResource("RectangleShape2D_4oi03")
+
+[node name="slingshot" parent="." instance=ExtResource("3_aymer")]
+points = PackedVector2Array(400, 673, 400, 285, 400, -16)
+
+[node name="Cat" parent="." instance=ExtResource("2_xkab4")]
+position = Vector2(400, 282)
+z_index = 1
+collision_layer = 2
+clamp_limit = Vector2(3000, 0)
+
+[node name="Area5" parent="." instance=ExtResource("4_u5pux")]
+position = Vector2(1118, 2)
+scale = Vector2(3.70645, 1.00922)
+collision_mask = 2
+point = 5
+
+[node name="Area10" parent="." instance=ExtResource("4_u5pux")]
+position = Vector2(1804, 60)
+scale = Vector2(2.18645, 0.849222)
+collision_mask = 2
+point = 10
+
+[node name="Area25" parent="." instance=ExtResource("4_u5pux")]
+position = Vector2(2216, 97)
+scale = Vector2(1.50645, 0.689222)
+collision_mask = 2
+point = 25
+
+[node name="Area50" parent="." instance=ExtResource("4_u5pux")]
+position = Vector2(2496, 135)
+scale = Vector2(1.02646, 0.569222)
+collision_mask = 2
+point = 50
+
+[node name="Area100" parent="." instance=ExtResource("4_u5pux")]
+position = Vector2(2684, 160)
+scale = Vector2(0.929957, 0.495658)
+collision_mask = 2
+point = 100
+is_last = true
