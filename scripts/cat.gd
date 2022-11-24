@@ -24,8 +24,11 @@ func _process(delta):
 			
 	if drag_enabled:
 		position = get_global_mouse_position()
-
-			
+		position.x = clamp(position.x, 0, initial_position.x)
+		position.y = clamp(position.y, 0, screen_size.y)		
+		
+	#position.y = clamp(position.y, 0, screen_size.y)
+		
 	
 func _input(event):
 	if event is InputEventMouseButton:
@@ -35,7 +38,7 @@ func _input(event):
 				release_cat()
 			
 func release_cat():
-	var impulse_lenght = initial_position- position
+	var impulse_lenght = initial_position - position
 	impulse_direction = impulse_lenght.normalized()
 	apply_central_impulse(impulse_lenght * 8 * impulse_lenght.normalized().length())
 	
