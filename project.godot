@@ -13,9 +13,15 @@ _global_script_classes=[{
 "class": &"Cat",
 "language": &"GDScript",
 "path": "res://scripts/cat.gd"
+}, {
+"base": "Line2D",
+"class": &"SlingShot",
+"language": &"GDScript",
+"path": "res://scripts/slingshot.gd"
 }]
 _global_script_class_icons={
-"Cat": ""
+"Cat": "",
+"SlingShot": ""
 }
 
 [application]
